@@ -1,3 +1,20 @@
 <div>
-  List words.
+  <div *ngFor="let word of words">
+      <h3>{{word.en}}</h3>
+      <p>{{word.vn}}</p>
+      <button
+          class="btn btn-danger"
+          *ngIf="word.isMemorized"
+          (click)="toggle(word._id)"
+      >
+          Forgot
+      </button>
+      <button
+          class="btn btn-success"
+          *ngIf="!word.isMemorized"
+          (click)="toggle(word._id)"
+      >
+          Memorized
+      </button>
+  </div>
 </div>
