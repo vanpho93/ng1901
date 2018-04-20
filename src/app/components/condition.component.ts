@@ -4,10 +4,18 @@ import { Component } from '@angular/core';
     selector: 'app-condition',
     template: `
         <div>
-            <p>Condition component</p>
+            <h3>{{word.en}}</h3>
+            <p>{{word.vn}}</p>
+            <button class="btn btn-danger">Forgot</button>
+            <button class="btn btn-success">Memorized</button>
         </div>
     `
 })
 
 export class ConditionComponent {
+    word = {
+        en: 'One',
+        vn: 'Mot',
+        isMemorized: false
+    };
 }
