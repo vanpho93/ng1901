@@ -1,7 +1,12 @@
 <div>
   <div *ngFor="let word of words">
-      <h3>{{word.en}}</h3>
+      <h3>{{ word.isMemorized ? '------' : word.en }}</h3>
       <p>{{word.vn}}</p>
+      <button
+          class="btn btn-warning"
+      >
+          Remove
+      </button>
       <button
           class="btn btn-danger"
           *ngIf="word.isMemorized"
