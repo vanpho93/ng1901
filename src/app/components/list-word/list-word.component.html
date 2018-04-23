@@ -1,4 +1,9 @@
 <div>
+    <select class="form-control" style="width: 300px" [(ngModel)]="filterMode">
+        <option value="SHOW_ALL">SHOW ALL</option>
+        <option value="SHOW_FORGOT">SHOW FORGOT</option>
+        <option value="SHOW_MEMORIZED">SHOW MEMORIZED</option>
+    </select>
     <div class="form-group" style="width: 300px; padding-top: 20px">
         <input
             class="form-control"

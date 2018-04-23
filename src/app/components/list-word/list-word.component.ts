@@ -15,6 +15,7 @@ export class ListWordComponent {
   ];
   txtEn = '';
   txtVn = '';
+  filterMode = 'SHOW_ALL';
   toggle(_id: string) {
     const word = this.words.find(w => w._id === _id);
     word.isMemorized = !word.isMemorized;
