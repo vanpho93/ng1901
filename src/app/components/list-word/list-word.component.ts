@@ -45,5 +45,8 @@ export class ListWordComponent {
     this.words.unshift(word);
     this.txtEn = '';
     this.txtVn = '';
+    this.toggleShouldShowForm();
   }
+
+  toggleShouldShowForm() { this.shouldShowForm = !this.shouldShowForm; }
 }

@@ -5,7 +5,7 @@
         <option value="SHOW_MEMORIZED">SHOW MEMORIZED</option>
     </select>
     <br>
-    <button *ngIf="!shouldShowForm" class="btn btn-success form-control" style="width: 300px">
+    <button *ngIf="!shouldShowForm" (click)="toggleShouldShowForm();" class="btn btn-success form-control" style="width: 300px">
         Add new word
     </button>
     <div *ngIf="shouldShowForm" class="form-group" style="width: 300px; padding-top: 20px">
@@ -18,7 +18,7 @@
         </button>
         <br>
         <br>
-        <button class="btn btn-warning form-control" (click)="addWord();">
+        <button class="btn btn-warning form-control" (click)="toggleShouldShowForm();">
             Cancel
         </button>
     </div>
