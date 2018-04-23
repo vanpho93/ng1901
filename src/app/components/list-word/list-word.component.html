@@ -4,13 +4,22 @@
         <option value="SHOW_FORGOT">SHOW FORGOT</option>
         <option value="SHOW_MEMORIZED">SHOW MEMORIZED</option>
     </select>
-    <div class="form-group" style="width: 300px; padding-top: 20px">
+    <br>
+    <button *ngIf="!shouldShowForm" class="btn btn-success form-control" style="width: 300px">
+        Add new word
+    </button>
+    <div *ngIf="shouldShowForm" class="form-group" style="width: 300px; padding-top: 20px">
         <input class="form-control" placeholder="English" [(ngModel)]="txtEn">
         <br>
         <input class="form-control" placeholder="Vietnamese" [(ngModel)]="txtVn">
         <br>
         <button class="btn btn-success form-control" (click)="addWord();">
-            Add new word
+            Add
+        </button>
+        <br>
+        <br>
+        <button class="btn btn-warning form-control" (click)="addWord();">
+            Cancel
         </button>
     </div>
     <div *ngFor="let word of filteredWords">
