@@ -26,6 +26,14 @@ export class ListWordComponent {
   }
 
   addWord() {
-    // create new word, add to words
+    const word = {
+      _id: Math.random() + '',
+      en: this.txtEn,
+      vn: this.txtVn,
+      isMemorized: false
+    };
+    this.words.unshift(word);
+    this.txtEn = '';
+    this.txtVn = '';
   }
 }
