@@ -18,4 +18,9 @@ export class ListWordComponent {
     const word = this.words.find(w => w._id === _id);
     word.isMemorized = !word.isMemorized;
   }
+
+  remove(_id: string) {
+    const index = this.words.findIndex(w => w._id === _id);
+    this.words.splice(index, 1);
+  }
 }
