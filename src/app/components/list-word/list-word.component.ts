@@ -13,7 +13,8 @@ export class ListWordComponent {
     { _id: 'c', en: 'Three', vn: 'Ba', isMemorized: true },
     { _id: 'd', en: 'Four', vn: 'Bon', isMemorized: false },
   ];
-
+  txtEn = '';
+  txtVn = '';
   toggle(_id: string) {
     const word = this.words.find(w => w._id === _id);
     word.isMemorized = !word.isMemorized;
@@ -22,5 +23,9 @@ export class ListWordComponent {
   remove(_id: string) {
     const index = this.words.findIndex(w => w._id === _id);
     this.words.splice(index, 1);
+  }
+
+  addWord() {
+    // create new word, add to words
   }
 }

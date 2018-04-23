@@ -1,5 +1,22 @@
 <div>
-  <div *ngFor="let word of words">
+    <div class="form-group" style="width: 300px; padding-top: 20px">
+        <input
+            class="form-control"
+            placeholder="English"
+            [(ngModel)]="txtEn"
+        >
+        <br>
+        <input
+            class="form-control"
+            placeholder="Vietnamese"
+            [(ngModel)]="txtVn"
+        >
+        <br>
+        <button class="btn btn-success form-control" (click)="addWord();">
+            Add new word
+        </button>
+    </div>
+    <div *ngFor="let word of words">
       <h3>{{ word.isMemorized ? '------' : word.en }}</h3>
       <p>{{word.vn}}</p>
       <button
