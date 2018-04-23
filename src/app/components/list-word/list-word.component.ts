@@ -26,6 +26,14 @@ export class ListWordComponent {
     this.words.splice(index, 1);
   }
 
+  get filteredWords() {
+    return this.words.filter(word => {
+      if (this.filterMode === 'SHOW_ALL') return true;
+      if (this.filterMode === 'SHOW_MEMORIZED') return word.isMemorized;
+      return !word.isMemorized;
+    });
+  }
+
   addWord() {
     const word = {
       _id: Math.random() + '',
