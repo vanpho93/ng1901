@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-word-form',
@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
             Add new word
         </button>
         <div *ngIf="shouldShowForm" class="form-group" style="width: 300px; padding-top: 20px">
-            <input class="form-control" placeholder="English">
+            <input class="form-control" placeholder="English" [(ngModel)]="txtEn">
             <br>
-            <input class="form-control" placeholder="Vietnamese">
+            <input class="form-control" placeholder="Vietnamese" [(ngModel)]="txtVn">
             <br>
-            <button class="btn btn-success form-control">
+            <button class="btn btn-success form-control" (click)="addWord();">
                 Add
             </button>
             <br>
@@ -24,9 +24,23 @@ import { Component } from '@angular/core';
 })
 
 export class WordFormComponent {
+    @Input() words: any[];
     shouldShowForm = false;
-
+    txtEn = '';
+    txtVn = '';
     toggleForm() {
         this.shouldShowForm = !this.shouldShowForm;
+    }
+
+    addWord() {
+        this.words.push({
+            _id: Math.random() + '',
+            en: this.txtEn,
+            vn: this.txtVn,
+            isMemorized: false
+        });
+        this.toggleForm();
+        this.txtEn = '';
+        this.txtVn = '';
     }
 }
