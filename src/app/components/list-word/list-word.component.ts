@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { WordFilterComponent } from './word-filter.component';
 import { Word } from './types';
 
 @Component({
   selector: 'app-list-word',
   template: `
   <div>
-    <app-word-filter [filterMode]="filterMode" (onSetFilterMode)="onSetFilterMode($event)"></app-word-filter>
+    <app-word-filter></app-word-filter>
     <br>
     <app-word-form (onAddWord)="onAddWord($event)"></app-word-form>
     <div *ngFor="let word of filteredWords">
@@ -26,12 +27,12 @@ export class ListWordComponent {
     { _id: 'c', en: 'Three', vn: 'Ba', isMemorized: true },
     { _id: 'd', en: 'Four', vn: 'Bon', isMemorized: false },
   ];
-  filterMode = 'SHOW_ALL';
+  @ViewChild(WordFilterComponent) filterComponent: WordFilterComponent;
 
   get filteredWords(): Word[] {
     return this.words.filter(word => {
-      if (this.filterMode === 'SHOW_ALL') return true;
-      if (this.filterMode === 'SHOW_FORGOT') return !word.isMemorized;
+      if (this.filterComponent.filterMode === 'SHOW_ALL') return true;
+      if (this.filterComponent.filterMode === 'SHOW_FORGOT') return !word.isMemorized;
       return word.isMemorized;
     });
   }
@@ -49,6 +50,4 @@ export class ListWordComponent {
     const wordItem = this.words.find(word => word._id === _id);
     wordItem.isMemorized = !wordItem.isMemorized;
   }
-
-  onSetFilterMode(filterMode: string) { this.filterMode = filterMode; }
 }

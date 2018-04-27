@@ -4,8 +4,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     selector: 'app-word-filter',
     template: `
         <select class="form-control"
-            style="width: 300px" value={{filterMode}}
-            (change)="changeFilterMode($event)"
+            style="width: 300px"
+            [(ngModel)]="filterMode"
         >
             <option value="SHOW_ALL">SHOW ALL</option>
             <option value="SHOW_FORGOT">SHOW FORGOT</option>
@@ -15,10 +15,5 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class WordFilterComponent {
-    @Input() filterMode: string;
-    @Output() onSetFilterMode = new EventEmitter<string>();
-    changeFilterMode(evt: any) {
-        const value = evt.target.value;
-        this.onSetFilterMode.emit(value);
-    }
+    filterMode = 'SHOW_ALL';
 }
