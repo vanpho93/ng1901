@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     <br>
     <app-word-form></app-word-form>
     <div *ngFor="let word of words">
-        <app-word-item></app-word-item>
+        <app-word-item [wordInfo]="word" ></app-word-item>
     </div>
   </div>
   `,
