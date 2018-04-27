@@ -7,10 +7,10 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
             <button class="btn btn-success" (click)="increase();">
                 Increase
             </button>
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" (click)="descrease();">
                 Descrease
             </button>
-            <button class="btn btn-warning">
+            <button class="btn btn-warning" (click)="reset();">
                 Reset
             </button>
         </div>
@@ -19,6 +19,10 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 export class ChildComponent {
     @Output() onIncrease = new EventEmitter();
+    @Output() onDescrease = new EventEmitter();
+    @Output() onReset = new EventEmitter();
 
     increase() { this.onIncrease.emit(); }
+    descrease() { this.onDescrease.emit(); }
+    reset() { this.onReset.emit(); }
 }
