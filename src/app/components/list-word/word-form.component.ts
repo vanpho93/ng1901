@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Word } from './types';
 
 @Component({
@@ -25,7 +25,7 @@ import { Word } from './types';
 })
 
 export class WordFormComponent {
-    @Input() words: Word[];
+    @Output() onAddWord = new EventEmitter<Word>();
     shouldShowForm = false;
     txtEn = '';
     txtVn = '';
@@ -40,7 +40,7 @@ export class WordFormComponent {
             vn: this.txtVn,
             isMemorized: false
         };
-        this.words.push(word);
+        this.onAddWord.emit(word);
         this.toggleForm();
         this.txtEn = '';
         this.txtVn = '';
