@@ -2,8 +2,16 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-list-word',
-  templateUrl: './list-word.component.html',
-  styleUrls: ['./list-word.component.css']
+  template: `
+  <div>
+    <app-word-filter></app-word-filter>
+    <br>
+    <app-word-form></app-word-form>
+    <div *ngFor="let word of words">
+        <app-word-item></app-word-item>
+    </div>
+  </div>
+  `,
 })
 
 export class ListWordComponent {
@@ -13,40 +21,4 @@ export class ListWordComponent {
     { _id: 'c', en: 'Three', vn: 'Ba', isMemorized: true },
     { _id: 'd', en: 'Four', vn: 'Bon', isMemorized: false },
   ];
-  txtEn = '';
-  txtVn = '';
-  shouldShowForm = false;
-  filterMode = 'SHOW_ALL';
-  toggle(_id: string) {
-    const word = this.words.find(w => w._id === _id);
-    word.isMemorized = !word.isMemorized;
-  }
-
-  remove(_id: string) {
-    const index = this.words.findIndex(w => w._id === _id);
-    this.words.splice(index, 1);
-  }
-
-  get filteredWords() {
-    return this.words.filter(word => {
-      if (this.filterMode === 'SHOW_ALL') return true;
-      if (this.filterMode === 'SHOW_MEMORIZED') return word.isMemorized;
-      return !word.isMemorized;
-    });
-  }
-
-  addWord() {
-    const word = {
-      _id: Math.random() + '',
-      en: this.txtEn,
-      vn: this.txtVn,
-      isMemorized: false
-    };
-    this.words.unshift(word);
-    this.txtEn = '';
-    this.txtVn = '';
-    this.toggleShouldShowForm();
-  }
-
-  toggleShouldShowForm() { this.shouldShowForm = !this.shouldShowForm; }
 }

@@ -9,13 +9,20 @@ import { ConditionComponent } from './components/condition.component';
 import { MyInputComponent } from './components/my-input.component';
 import { ListWordComponent } from './components/list-word/list-word.component';
 
+import { WordFilterComponent } from './components/list-word/word-filter.component';
+import { WordFormComponent } from './components/list-word/word-form.component';
+import { WordItemComponent } from './components/list-word/word-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     WordComponent,
     ConditionComponent,
     ListWordComponent,
-    MyInputComponent
+    MyInputComponent,
+    WordFilterComponent,
+    WordFormComponent,
+    WordItemComponent
   ],
   imports: [
     BrowserModule,
