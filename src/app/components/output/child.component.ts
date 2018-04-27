@@ -18,11 +18,12 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 })
 
 export class ChildComponent {
-    @Output() onIncrease = new EventEmitter();
-    @Output() onDescrease = new EventEmitter();
-    @Output() onReset = new EventEmitter();
+    @Output() onIncrease = new EventEmitter<void>();
+    @Output() onDescrease = new EventEmitter<void>();
+    @Output() onReset = new EventEmitter<void>();
+    @Output() onChangeValue = new EventEmitter<boolean>();
 
-    increase() { this.onIncrease.emit(); }
-    descrease() { this.onDescrease.emit(); }
+    increase() { this.onChangeValue.emit(true); }
+    descrease() { this.onChangeValue.emit(false); }
     reset() { this.onReset.emit(); }
 }

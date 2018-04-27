@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
                 (onIncrease)="onIncrease();"
                 (onDescrease)="onDescrease();"
                 (onReset)="onReset();"
+                (onChangeValue)="onChangeValue($event)"
             ></app-child>
         </div>
     `
@@ -22,4 +23,7 @@ export class ParentComponent {
     onIncrease() { this.count++; }
     onDescrease() { this.count--; }
     onReset() { this.count = 0; }
+    onChangeValue(isIncrease: boolean) {
+        this.count += isIncrease ? 1 : -1;
+    }
 }
