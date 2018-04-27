@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-child',
     template: `
         <div>
-            <button class="btn btn-success">
+            <button class="btn btn-success" (click)="increase();">
                 Increase
             </button>
             <button class="btn btn-danger">
@@ -18,4 +18,7 @@ import { Component } from '@angular/core';
 })
 
 export class ChildComponent {
+    @Output() onIncrease = new EventEmitter();
+
+    increase() { this.onIncrease.emit(); }
 }

@@ -7,11 +7,15 @@ import { Component } from '@angular/core';
             <p>Count = {{ count }}</p>
             <h3>Count = {{ count }}</h3>
             <h1>Count = {{ count }}</h1>
-            <app-child></app-child>
+            <app-child
+                (onIncrease)="onIncrease();"
+            ></app-child>
         </div>
     `
 })
 
 export class ParentComponent {
     count = 1;
+
+    onIncrease() { this.count++; }
 }
