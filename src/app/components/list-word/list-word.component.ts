@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Word } from './types';
 
 @Component({
   selector: 'app-list-word',
@@ -15,7 +16,7 @@ import { Component } from '@angular/core';
 })
 
 export class ListWordComponent {
-  words = [
+  words: Word[] = [
     { _id: 'a', en: 'One', vn: 'Mot', isMemorized: true },
     { _id: 'b', en: 'Two', vn: 'Hai', isMemorized: false },
     { _id: 'c', en: 'Three', vn: 'Ba', isMemorized: true },

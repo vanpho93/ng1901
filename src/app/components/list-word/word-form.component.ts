@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Word } from './types';
 
 @Component({
     selector: 'app-word-form',
@@ -24,7 +25,7 @@ import { Component, Input } from '@angular/core';
 })
 
 export class WordFormComponent {
-    @Input() words: any[];
+    @Input() words: Word[];
     shouldShowForm = false;
     txtEn = '';
     txtVn = '';
@@ -33,12 +34,13 @@ export class WordFormComponent {
     }
 
     addWord() {
-        this.words.push({
+        const word: Word = {
             _id: Math.random() + '',
             en: this.txtEn,
             vn: this.txtVn,
             isMemorized: false
-        });
+        };
+        this.words.push(word);
         this.toggleForm();
         this.txtEn = '';
         this.txtVn = '';
