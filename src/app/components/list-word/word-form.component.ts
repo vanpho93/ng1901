@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-word-form',
     template: `
-        <button *ngIf="!shouldShowForm" class="btn btn-success form-control" style="width: 300px">
+        <button *ngIf="!shouldShowForm" (click)="toggleForm();" class="btn btn-success form-control" style="width: 300px">
             Add new word
         </button>
         <div *ngIf="shouldShowForm" class="form-group" style="width: 300px; padding-top: 20px">
@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
             </button>
             <br>
             <br>
-            <button class="btn btn-warning form-control">
+            <button class="btn btn-warning form-control" (click)="toggleForm();">
                 Cancel
             </button>
         </div>
@@ -25,4 +25,8 @@ import { Component } from '@angular/core';
 
 export class WordFormComponent {
     shouldShowForm = false;
+
+    toggleForm() {
+        this.shouldShowForm = !this.shouldShowForm;
+    }
 }
